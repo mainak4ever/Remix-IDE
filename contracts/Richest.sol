@@ -19,7 +19,8 @@ contract Richest {
     function withdraw() external {
         uint value = pendingWithdrawls[msg.sender];
         pendingWithdrawls[msg.sender]=0;
-        payable(msg.sender).transfer(value);
+        (bool sent, ) = payable(msg.sender).call{value: value}("");
+        require(sent);
     }
 
     function getRichest() public view returns(address){
