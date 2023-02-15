@@ -19,9 +19,9 @@ contract Richest {
     }
 
     function withdraw() external {
-        uint value = users[preRichest];
-        users[preRichest]=0;
-        payable(preRichest).transfer(value);
+        uint value = users[msg.sender];
+        users[msg.sender]=0;
+        payable(msg.sender).transfer(value);
     }
 
     function getRichest() public view returns(address){
