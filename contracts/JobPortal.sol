@@ -7,7 +7,7 @@ contract MigrantWorkersPortal {
         Admin = msg.sender;
     }
 
-    struct Applicant {
+    struct Applicant { 
         string id;
         string name;
         string laborHistory;
